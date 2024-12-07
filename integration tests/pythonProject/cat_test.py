@@ -1,8 +1,6 @@
 import subprocess
 
-def test_my_cat():
-    file_path = "cat/tests/big_text"
-
+def main_test(file_path):
     result_original = subprocess.run(
         ['cat', file_path],
         stdout=subprocess.PIPE,
@@ -16,3 +14,14 @@ def test_my_cat():
     ).stdout
 
     assert result_my_cat == result_original, "FAIL"
+
+def test_big_text():
+    file_path = "cat/tests/big_text"
+    main_test(file_path)
+
+def test_case_b():
+    file_path = "cat/tests/case_b"
+    main_test(file_path)
+    
+def test_case_e():
+    file_path = "cat/tests/case_e"
