@@ -1,7 +1,7 @@
 import subprocess
 
 def test_my_cat():
-    file_path = "../cat/tests/big_text"
+    file_path = "../../cat/tests/big_text"
 
     result_original = subprocess.run(
         ['cat', file_path],
@@ -10,7 +10,7 @@ def test_my_cat():
     ).stdout
 
     result_my_cat = subprocess.run(
-        ['./cat/s21_cat', file_path],
+        ['../../cat/s21_cat', file_path],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
