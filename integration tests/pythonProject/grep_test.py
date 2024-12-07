@@ -3,7 +3,7 @@ import subprocess
 
 def test_one_file_one_pattern():
     result_original = subprocess.run(
-        ['grep', "coronavirus", "grep/grep/grep_tests/new"],
+        ['grep', "coronavirus", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
