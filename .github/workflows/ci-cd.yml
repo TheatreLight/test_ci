@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build
-        run: pwd && cd .. && pwd && ls && make test
+        run: pwd && ls && make test
