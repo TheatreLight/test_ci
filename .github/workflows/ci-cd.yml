@@ -25,4 +25,4 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
       - name: test app
-        run: pytest integration tests/pythonProject/
+        run: pytest "integration tests/pythonProject/"
