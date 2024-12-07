@@ -10,8 +10,6 @@ jobs:
         uses: actions/checkout@v3
       - name: build apps
         run: make
-      - name: List files in repository
-        run: ls -R
   tests:
     runs-on: ubuntu-latest
     needs: build
@@ -28,13 +26,5 @@ jobs:
           pip install pytest
       - name: build apps
         run: make
-      - name: List files in repository
-        run: ls -R
-      - name: Ensure executable permissions
-        run: chmod +x ./cat/s21_cat
-      - name: Verify s21_cat exists
-        run: ls -l ./cat/s21_cat
-      - name: Verify test files exist
-        run: ls -l cat/tests/
       - name: test app
         run: pytest "integration tests/pythonProject/"
