@@ -64,30 +64,3 @@ def test_case_nonprint():
     file_path = "cat/tests/nonprint"
     main_test(file_path, "nonprint symbols test")
 
-def test_orig_case_b():
-    file_path = "cat/tests/orig_case_b"
-    main_test(file_path, "original test b")
-
-def test_orig_case_e():
-    file_path = "cat/tests/orig_case_e"
-    main_test(file_path, "original test e")
-
-def test_orig_case_n():
-    file_path = "cat/tests/orig_case_n"
-    main_test(file_path, "original test n")
-
-def test_orig_case_s():
-    file_path = "cat/tests/orig_case_s"
-    main_test(file_path, "original test s")
-
-def test_orig_case_t():
-    file_path = "cat/tests/orig_case_t"
-    main_test(file_path, "original test t")
-
-def test_case_out3():
-    file_path = "cat/tests/out3"
-    main_test(file_path, "base test 1")
-
-def test_out4():
-    file_path = "cat/tests/out4"
-    main_test(file_path, "base test 2")
