@@ -8,13 +8,13 @@ def main_test(file_path, test_name):
         text=True
     ).stdout
 
-    result_my_cat = subprocess.run(
+    result_current = subprocess.run(
         ['./cat/s21_cat', file_path],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
-    assert result_my_cat == result_original, "FAIL"
+    assert result_current == result_original, "FAIL"
     print(test_name, ":", "SUCCESS")
 
 

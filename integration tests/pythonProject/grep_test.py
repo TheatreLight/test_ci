@@ -3,19 +3,20 @@ import subprocess
 
 def main_test(pattern, file, test_name):
     command = pattern + " " + file
+    print(command)
     result_original = subprocess.run(
         ['grep', command],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
-    result_my_cat = subprocess.run(
+    result_current = subprocess.run(
         ['./grep/s21_grep', command],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
-    assert result_my_cat == result_original, "FAIL"
+    assert result_current == result_original, "FAIL"
     print(test_name, ":", "SUCCESS")
 
 
