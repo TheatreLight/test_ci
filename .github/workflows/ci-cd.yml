@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build
-        run: make test
+        run: cd ../.. make test
