@@ -1,0 +1,11 @@
+name: ci
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: cd /src
+             make test
