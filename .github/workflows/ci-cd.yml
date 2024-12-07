@@ -3,8 +3,22 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-  build:
+  build_lin:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: build apps
+        run: make
+  build_win:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: build apps
+        run: make
+  build_mac:
+    runs-on: mac-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -12,7 +26,7 @@ jobs:
         run: make
   tests:
     runs-on: ubuntu-latest
-    needs: build
+    needs: build_lin
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
