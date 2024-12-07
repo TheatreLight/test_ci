@@ -1,79 +1,243 @@
 import subprocess
 
 
-def main_test(pattern, file, test_name):
-    command = pattern + " " + file
-    print(command)
+def test_one_file_one_pattern():
     result_original = subprocess.run(
-        ['grep', pattern, file],
+        ['grep', "coronavirus", "grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', command],
+        ['./grep/s21_grep', "coronavirus", "grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     assert result_current == result_original, "FAIL"
-    print(test_name, ":", "SUCCESS")
-
-
-def test_one_file_one_pattern():
-    main_test(" coronavirus ", "grep_tests/new", "one_file_one_pattern")
+    print("one_file_one_pattern", ":", "SUCCESS")
 
 
 def test_seven_files_one_pattern():
-    main_test("a",
-              "grep_tests/new grep_tests/old grep_tests/18_test_pat grep_tests/19_test_pat grep_tests/forgrep "
-              "grep_tests/pattern grep_tests/text",
-              "seven_files_one_pattern")
+    result_original = subprocess.run(
+        ['grep', "a", "grep_tests/new", "grep_tests/old",
+         "grep_tests/18_test_pat", "grep_tests/19_test_pat",
+         "grep_tests/forgrep", "grep_tests/pattern", "grep_tests/text"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "a", "grep_tests/new", "grep_tests/old",
+         "grep_tests/18_test_pat", "grep_tests/19_test_pat",
+         "grep_tests/forgrep", "grep_tests/pattern", "grep_tests/text"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("seven_files_one_pattern", ":", "SUCCESS")
 
 
 def test_e_two_patterns_one_file():
-    main_test("-e all -e it", "grep_tests/new", "e_test_two_patterns_one_file")
+    result_original = subprocess.run(
+        ['grep', "-e", "all", "-e", "it", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-e", "all", "-e", "it", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("e_test_two_patterns_one_file", ":", "SUCCESS")
 
 
 def test_e_two_patterns_two_files():
-    main_test("-e all -e it", "grep_tests/new grep_tests/old", "e_test_two_patterns_two_files")
+    result_original = subprocess.run(
+        ['grep', "-e", "all", "-e", "it", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-e", "all", "-e", "it", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("e_test_two_patterns_two_files", ":", "SUCCESS")
 
 
 def test_i_one_pattern_one_file():
-    main_test("-i health", "grep_tests/new", "i_test_one_pattern_one_file")
+    result_original = subprocess.run(
+        ['grep', "-i", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-i", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("i_test_one_pattern_one_file", ":", "SUCCESS")
 
 
 def test_i_two_patterns_two_files():
-    main_test("-ie health -e grep", "grep_tests/new grep_tests/old", "i_test_two_patterns_two_files")
+    result_original = subprocess.run(
+        ['grep', "-i", "health", "-e", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-i", "health", "-e", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("i_test_two_patterns_two_files", ":", "SUCCESS")
 
 
 def test_v_one_pattern_one_file():
-    main_test("-v health", "grep_tests/new", "v_test_one_pattern_one_file")
+    result_original = subprocess.run(
+        ['grep', "-v", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-v", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("v_test_one_pattern_one_file", ":", "SUCCESS")
 
 
 def test_v_two_patterns_two_files():
-    main_test("-ve health -e grep", "grep_tests/new grep_tests/old", "v_test_two_patterns_two_files")
+    result_original = subprocess.run(
+        ['grep', "-ve", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-ve", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("v_test_two_patterns_two_files", ":", "SUCCESS")
 
 
 def test_c_one_pattern_one_file():
-    main_test("-c health", "grep_tests/new", "c_test_one_pattern_one_file")
+    result_original = subprocess.run(
+        ['grep', "-c", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-c", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("c_test_one_pattern_one_file", ":", "SUCCESS")
 
 
 def test_c_two_patterns_two_files():
-    main_test("-ce health -e grep", "grep_tests/new grep_tests/old", "c_test_two_patterns_two_files")
+    result_original = subprocess.run(
+        ['grep', "-ce", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-ce", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("ce_test_two_patterns_two_files", ":", "SUCCESS")
 
 
 def test_l_one_pattern_one_file():
-    main_test("-l health", "grep_tests/new", "l_test_one_pattern_one_file")
+    result_original = subprocess.run(
+        ['grep', "-l", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-l", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("l_test_one_pattern_one_file", ":", "SUCCESS")
 
 
 def test_l_two_patterns_two_files():
-    main_test("-le health -e grep", "grep_tests/new grep_tests/old", "l_test_two_patterns_two_files")
+    result_original = subprocess.run(
+        ['grep', "-le", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-le", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("le_test_two_patterns_two_files", ":", "SUCCESS")
 
 
 def test_n_one_pattern_one_file():
-    main_test("-n health", "grep_tests/new", "n_test_one_pattern_one_file")
+    result_original = subprocess.run(
+        ['grep', "-n", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-n", "health", "grep_tests/new"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("n_test_one_pattern_one_file", ":", "SUCCESS")
 
 
 def test_n_two_patterns_two_files():
-    main_test("-ne health -e grep", "grep_tests/new grep_tests/old", "n_test_two_patterns_two_files")
+    result_original = subprocess.run(
+        ['grep', "-ne", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    result_current = subprocess.run(
+        ['./grep/s21_grep', "-ne", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        stdout=subprocess.PIPE,
+        text=True
+    ).stdout
+
+    assert result_current == result_original, "FAIL"
+    print("ne_test_two_patterns_two_files", ":", "SUCCESS")
