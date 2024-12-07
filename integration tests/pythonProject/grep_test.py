@@ -5,7 +5,7 @@ def main_test(pattern, file, test_name):
     command = pattern + " " + file
     print(command)
     result_original = subprocess.run(
-        ['grep', command],
+        ['grep', pattern, file],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
