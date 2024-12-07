@@ -20,12 +20,13 @@ def main_test(pattern, file, test_name):
 
 
 def one_file_one_pattern_test():
-    main_test("coronavirus", "grep_tests/new", "one_file_one_pattern")
+    main_test(" coronavirus ", "grep_tests/new", "one_file_one_pattern")
 
 
 def seven_files_one_pattern_test():
     main_test("a",
-              "grep_tests/new grep_tests/old grep_tests/18_test_pat grep_tests/19_test_pat grep_tests/forgrep grep_tests/pattern grep_tests/text",
+              "grep_tests/new grep_tests/old grep_tests/18_test_pat grep_tests/19_test_pat grep_tests/forgrep "
+              "grep_tests/pattern grep_tests/text",
               "seven_files_one_pattern")
 
 
