@@ -3,13 +3,13 @@ import subprocess
 
 def test_one_file_one_pattern():
     result_original = subprocess.run(
-        ['grep', "coronavirus", "grep_tests/new"],
+        ['grep', "coronavirus", "grep/grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "coronavirus", "grep_tests/new"],
+        ['./grep/s21_grep', "coronavirus", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -20,17 +20,17 @@ def test_one_file_one_pattern():
 
 def test_seven_files_one_pattern():
     result_original = subprocess.run(
-        ['grep', "a", "grep_tests/new", "grep_tests/old",
-         "grep_tests/18_test_pat", "grep_tests/19_test_pat",
-         "grep_tests/forgrep", "grep_tests/pattern", "grep_tests/text"],
+        ['grep', "a", "grep/grep_tests/new", "grep/grep_tests/old",
+         "grep/grep_tests/18_test_pat", "grep/grep_tests/19_test_pat",
+         "grep/grep_tests/forgrep", "grep/grep_tests/pattern", "grep/grep_tests/text"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "a", "grep_tests/new", "grep_tests/old",
-         "grep_tests/18_test_pat", "grep_tests/19_test_pat",
-         "grep_tests/forgrep", "grep_tests/pattern", "grep_tests/text"],
+        ['./grep/s21_grep', "a", "grep/grep_tests/new", "grep/grep_tests/old",
+         "grep/grep_tests/18_test_pat", "grep/grep_tests/19_test_pat",
+         "grep/grep_tests/forgrep", "grep/grep_tests/pattern", "grep/grep_tests/text"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -41,13 +41,13 @@ def test_seven_files_one_pattern():
 
 def test_e_two_patterns_one_file():
     result_original = subprocess.run(
-        ['grep', "-e", "all", "-e", "it", "grep_tests/new"],
+        ['grep', "-e", "all", "-e", "it", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-e", "all", "-e", "it", "grep_tests/new"],
+        ['./grep/s21_grep', "-e", "all", "-e", "it", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -58,13 +58,13 @@ def test_e_two_patterns_one_file():
 
 def test_e_two_patterns_two_files():
     result_original = subprocess.run(
-        ['grep', "-e", "all", "-e", "it", "grep_tests/new", "grep_tests/old"],
+        ['grep', "-e", "all", "-e", "it", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-e", "all", "-e", "it", "grep_tests/new", "grep_tests/old"],
+        ['./grep/s21_grep', "-e", "all", "-e", "it", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -75,13 +75,13 @@ def test_e_two_patterns_two_files():
 
 def test_i_one_pattern_one_file():
     result_original = subprocess.run(
-        ['grep', "-i", "health", "grep_tests/new"],
+        ['grep', "-i", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-i", "health", "grep_tests/new"],
+        ['./grep/s21_grep', "-i", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -92,13 +92,13 @@ def test_i_one_pattern_one_file():
 
 def test_i_two_patterns_two_files():
     result_original = subprocess.run(
-        ['grep', "-i", "health", "-e", "grep_tests/new", "grep_tests/old"],
+        ['grep', "-i", "health", "-e", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-i", "health", "-e", "grep_tests/new", "grep_tests/old"],
+        ['./grep/s21_grep', "-i", "health", "-e", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -109,13 +109,13 @@ def test_i_two_patterns_two_files():
 
 def test_v_one_pattern_one_file():
     result_original = subprocess.run(
-        ['grep', "-v", "health", "grep_tests/new"],
+        ['grep', "-v", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-v", "health", "grep_tests/new"],
+        ['./grep/s21_grep', "-v", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -126,13 +126,13 @@ def test_v_one_pattern_one_file():
 
 def test_v_two_patterns_two_files():
     result_original = subprocess.run(
-        ['grep', "-ve", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        ['grep', "-ve", "health", "-e", "grep", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-ve", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        ['./grep/s21_grep', "-ve", "health", "-e", "grep", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -143,13 +143,13 @@ def test_v_two_patterns_two_files():
 
 def test_c_one_pattern_one_file():
     result_original = subprocess.run(
-        ['grep', "-c", "health", "grep_tests/new"],
+        ['grep', "-c", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-c", "health", "grep_tests/new"],
+        ['./grep/s21_grep', "-c", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -160,13 +160,13 @@ def test_c_one_pattern_one_file():
 
 def test_c_two_patterns_two_files():
     result_original = subprocess.run(
-        ['grep', "-ce", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        ['grep', "-ce", "health", "-e", "grep", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-ce", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        ['./grep/s21_grep', "-ce", "health", "-e", "grep", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -177,13 +177,13 @@ def test_c_two_patterns_two_files():
 
 def test_l_one_pattern_one_file():
     result_original = subprocess.run(
-        ['grep', "-l", "health", "grep_tests/new"],
+        ['grep', "-l", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-l", "health", "grep_tests/new"],
+        ['./grep/s21_grep', "-l", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -194,13 +194,13 @@ def test_l_one_pattern_one_file():
 
 def test_l_two_patterns_two_files():
     result_original = subprocess.run(
-        ['grep', "-le", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        ['grep', "-le", "health", "-e", "grep", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-le", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        ['./grep/s21_grep', "-le", "health", "-e", "grep", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -211,13 +211,13 @@ def test_l_two_patterns_two_files():
 
 def test_n_one_pattern_one_file():
     result_original = subprocess.run(
-        ['grep', "-n", "health", "grep_tests/new"],
+        ['grep', "-n", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-n", "health", "grep_tests/new"],
+        ['./grep/s21_grep', "-n", "health", "grep/grep_tests/new"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
@@ -228,13 +228,13 @@ def test_n_one_pattern_one_file():
 
 def test_n_two_patterns_two_files():
     result_original = subprocess.run(
-        ['grep', "-ne", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        ['grep', "-ne", "health", "-e", "grep", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-ne", "health", "-e", "grep", "grep_tests/new", "grep_tests/old"],
+        ['./grep/s21_grep', "-ne", "health", "-e", "grep", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
