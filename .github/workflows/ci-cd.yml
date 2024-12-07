@@ -8,9 +8,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Debug directory
         run: ls -al
-      
-      - name: build
+      - name: Show Makefile content
+        run: cat Makefile
+      - name: Build
         run: make test
