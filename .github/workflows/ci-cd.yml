@@ -42,3 +42,20 @@ jobs:
         run: make
       - name: test app
         run: pytest -s "integration tests/pythonProject/"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GCLOUD_CREDENTIALS }}
+      - name: Copy files to server
+        run: |
+          gcloud compute scp ./your_project_files \
+          $INSTANCE_NAME:~/ --zone $GCLOUD_ZONE
+      - name: Restart application
+        run: |
+          gcloud compute ssh $INSTANCE_NAME --zone $GCLOUD_ZONE --command \
+          "sudo systemctl restart your-service"
