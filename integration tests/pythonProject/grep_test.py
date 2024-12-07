@@ -1,6 +1,5 @@
 import subprocess
 
-
 def test_one_file_one_pattern():
     result_original = subprocess.run(
         ['grep', "coronavirus", "grep/grep_tests/new"],
