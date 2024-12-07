@@ -92,13 +92,13 @@ def test_i_one_pattern_one_file():
 
 def test_i_two_patterns_two_files():
     result_original = subprocess.run(
-        ['grep', "-i", "health", "-e", "grep/grep_tests/new", "grep/grep_tests/old"],
+        ['grep', "-i", "health", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
 
     result_current = subprocess.run(
-        ['./grep/s21_grep', "-i", "health", "-e", "grep/grep_tests/new", "grep/grep_tests/old"],
+        ['./grep/s21_grep', "-i", "health", "grep/grep_tests/new", "grep/grep_tests/old"],
         stdout=subprocess.PIPE,
         text=True
     ).stdout
