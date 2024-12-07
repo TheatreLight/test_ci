@@ -14,8 +14,7 @@ def main_test(file_path):
     ).stdout
 
     assert result_my_cat == result_original, "FAIL"
-    print("OK")
-
+    print("SUCCESS")
 
 def test_big_text():
     file_path = "cat/tests/big_text"
