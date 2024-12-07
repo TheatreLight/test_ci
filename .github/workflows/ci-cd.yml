@@ -24,5 +24,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pytest
+      - name: Ensure executable permissions
+        run: chmod +x ./cat/s21_cat
+      - name: Verify s21_cat exists
+        run: ls -l ./cat/s21_cat
+      - name: Verify test files exist
+        run: ls -l cat/tests/
       - name: test app
         run: pytest "integration tests/pythonProject/"
