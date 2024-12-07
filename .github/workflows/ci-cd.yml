@@ -55,4 +55,4 @@ jobs:
           credentials_json: ${{ secrets.GCLOUD_CREDENTIALS }}
       - name: Copy files to server
         run: |
-          gcloud compute scp ./grep/s21_grep ./cat/s21_cat $INSTANCE_NAME:~/ --zone $GCLOUD_ZONE
+          gcloud compute scp ./grep/s21_grep ./cat/s21_cat $INSTANCE_NAME:~/ --zone="$GCLOUD_ZONE"
