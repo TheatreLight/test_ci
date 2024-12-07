@@ -27,4 +27,4 @@ jobs:
       - name: build apps
         run: make
       - name: test app
-        run: pytest "integration tests/pythonProject/"
+        run: pytest -s "integration tests/pythonProject/"
